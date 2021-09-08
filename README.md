@@ -47,3 +47,8 @@ IMPORTANTE: Não esqueça de colocar as anotações corretamente para o relacion
 --> putProduto  = um endPoint com a função de atualizar dados de um Produto .
 
 --> deleteProduto  = um endPoint com a função de apagar um Produto do banco de dados).
+
+**Atividade implementando as camadas de segurança no Back-end da Loja de Games.**
+
+- Implemente a segurança no modelo basic no back-end da Loja de Games.
+
