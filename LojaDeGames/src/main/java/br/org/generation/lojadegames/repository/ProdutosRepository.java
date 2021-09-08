@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.org.generation.lojadegames.model.Produtos;
+import br.org.generation.lojadegames.model.Produto;
 
 @Repository
-public interface ProdutosRepository extends JpaRepository<Produtos, Long> {
+public interface ProdutosRepository extends JpaRepository<Produto, Long> {
 	
-	public List<Produtos> findAllByNomeContainingIgnoreCase(String nome);
+	public List<Produto> findAllByNomeContainingIgnoreCase(String nome);
 
 }
