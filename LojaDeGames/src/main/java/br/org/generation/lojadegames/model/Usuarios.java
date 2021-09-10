@@ -38,11 +38,22 @@ public class Usuarios {
 	
 	@Column(name = "data_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "O atributo Data de Nascimento é Obrigatório!")
 	private LocalDate dataNascimento;
 	
 	@OneToMany(mappedBy = "usuarios", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuarios")
-	private List<Produto> produto;
+	private List<Produtos> produto;
+	
+	public Usuarios(long id, String nome, String usuarios, String senha, LocalDate dataNascimento) {
+		this.id = id;
+		this.nome = nome;
+		this.usuarios = usuarios;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
+	}
+
+	public Usuarios() {	}
 
 	public long getId() {
 		return id;
@@ -84,11 +95,11 @@ public class Usuarios {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public List<Produto> getProduto() {
+	public List<Produtos> getProduto() {
 		return produto;
 	}
 
-	public void setProduto(List<Produto> produto) {
+	public void setProduto(List<Produtos> produto) {
 		this.produto = produto;
 	}
 }

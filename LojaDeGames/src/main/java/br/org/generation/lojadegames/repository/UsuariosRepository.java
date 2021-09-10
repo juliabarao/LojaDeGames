@@ -17,5 +17,4 @@ public interface UsuariosRepository extends JpaRepository<Usuarios, Long>{
 
 	public Usuarios findByNome(String nome);
 
-
 }

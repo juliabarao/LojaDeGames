@@ -2,7 +2,7 @@ package br.org.generation.lojadegames.model;
 
 public class UsuariosLogin {
 	
-private long id;
+	private long id;
 	
 	private String nome;
 	

@@ -31,6 +31,7 @@ public class UsuariosController {
 	public ResponseEntity<List<Usuarios>> getAll(){
 		
 		return ResponseEntity.ok(usuariosService.listarUsuarios());
+		
 	}
 	
 	@GetMapping("/{id}")
@@ -39,6 +40,7 @@ public class UsuariosController {
 		return usuariosService.buscarUsuarios(id)
 				.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+		
 	}
 	
 	@PostMapping("/logar")
@@ -47,7 +49,6 @@ public class UsuariosController {
 		return usuariosService.loginUsuarios(usuariosLogin)
 			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
 			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
-
 	}
 		
 	@PostMapping("/cadastrar")
@@ -56,7 +57,6 @@ public class UsuariosController {
 		return usuariosService.cadastrarUsuarios(usuarios)
 				.map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
 				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
-		
 	}
 	
 	@PutMapping("/atualizar")
@@ -65,7 +65,6 @@ public class UsuariosController {
 		return usuariosService.atualizarUsuarios(usuarios)
 			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
 			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
-        
 	}
 
 }

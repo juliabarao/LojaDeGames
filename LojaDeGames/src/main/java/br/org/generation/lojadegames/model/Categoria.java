@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -28,9 +29,12 @@ public class Categoria {
 	@Size(min = 15, max = 200, message = "O atributo descrição deve ter no mínimo 15 e no máximo 200 caracteres!")
 	private String descricao;
 	
+	@Transient
+	private int numeroProdutos;
+	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
-	private List<Produto> produtos;
+	private List<Produtos> produtos;
 
 	public long getId() {
 		return id;
@@ -48,11 +52,19 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 
-	public List<Produto> getProdutos() {
+	public int getNumeroProdutos() {
+		return numeroProdutos;
+	}
+
+	public void setNumeroProdutos(int numeroProdutos) {
+		this.numeroProdutos = numeroProdutos;
+	}
+
+	public List<Produtos> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
+	public void setProdutos(List<Produtos> produtos) {
 		this.produtos = produtos;
 	}
 	
